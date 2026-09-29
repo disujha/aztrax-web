@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" fill="none">
+  <!-- Geometric industrial logo symbol -->
+  <g transform="translate(4, 5)">
+    <!-- Outer hexagonal / geometric shield frame -->
+    <path d="M20 0 L36 9 L36 31 L20 40 L4 31 L4 9 Z" fill="#101820" stroke="#16B9E8" stroke-width="2.5" stroke-linejoin="round" />
+    
+    <!-- Radar / Wireless Signal Arcs -->
+    <path d="M12 20 A8 8 0 0 1 28 20" stroke="#16B9E8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <path d="M8 16 A12 12 0 0 1 32 16" stroke="#16B9E8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
+    
+    <!-- Central Asset Node -->
+    <circle cx="20" cy="24" r="3.5" fill="#16B9E8" />
+    <circle cx="20" cy="24" r="6" stroke="#16B9E8" stroke-width="1" stroke-dasharray="2 2" fill="none" />
+  </g>
+  
+  <!-- AZTRAX Typographic Wordmark -->
+  <text x="56" y="32" font-family="system-ui, -apple-system, 'Inter', sans-serif" font-weight="900" font-size="26" letter-spacing="0.14em" fill="#F5F7F8">AZTR<tspan fill="#16B9E8">AX</tspan></text>
+  
+  <!-- Sub-label -->
+  <text x="58" y="44" font-family="system-ui, -apple-system, 'Inter', sans-serif" font-weight="700" font-size="6.5" letter-spacing="0.22em" fill="#5A6E88">INDUSTRIAL ASSET DETECTION</text>
+</svg>

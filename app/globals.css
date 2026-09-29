@@ -1,26 +1,329 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+
+  /* AZTRAX Brand Colours */
+  --color-graphite-950: #060810;
+  --color-graphite-900: #0c111a;
+  --color-graphite-800: #101820;
+  --color-graphite-700: #182030;
+  --color-graphite-600: #1e2a3c;
+  --color-graphite-500: #2a3a50;
+  --color-graphite-400: #3a4e68;
+  --color-graphite-300: #5a6e88;
+  --color-graphite-200: #8a9ab0;
+  --color-graphite-100: #b8c4d0;
+  --color-graphite-50: #e0e6ec;
+
+  --color-industrial-white: #f5f7f8;
+  --color-cool-grey: #e7ebee;
+  --color-mid-grey: #c8d0d8;
+
+  --color-cyan-400: #16b9e8;
+  --color-cyan-500: #0ea0cc;
+  --color-cyan-600: #0888aa;
+  --color-cyan-300: #4dcef0;
+  --color-cyan-200: #8de0f4;
+  --color-cyan-100: #cef3fc;
+
+  --color-amber-500: #d4a020;
+  --color-green-500: #2ea84a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #f5f7f8;
+  --foreground: #101820;
+  --border-subtle: rgba(16, 24, 32, 0.08);
+  --border-mid: rgba(16, 24, 32, 0.15);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                 */
+/* ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Scrollbar                                                             */
+/* ------------------------------------------------------------------ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c111a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a3a50;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #16b9e8;
+}
+
+/* ------------------------------------------------------------------ */
+/* Selection                                                            */
+/* ------------------------------------------------------------------ */
+
+::selection {
+  background: rgba(22, 185, 232, 0.25);
+  color: #f5f7f8;
+}
+
+/* ------------------------------------------------------------------ */
+/* Focus                                                                */
+/* ------------------------------------------------------------------ */
+
+:focus-visible {
+  outline: 2px solid #16b9e8;
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Custom Utilities & Components                                         */
+/* ------------------------------------------------------------------ */
+
+.az-container {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .az-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Section spacing */
+.az-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .az-section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* Graphite dark sections */
+.az-dark {
+  background-color: #101820;
+  color: #f5f7f8;
+}
+
+.az-darker {
+  background-color: #0c111a;
+  color: #f5f7f8;
+}
+
+.az-darkest {
+  background-color: #060810;
+  color: #f5f7f8;
+}
+
+/* Light sections */
+.az-light {
+  background-color: #f5f7f8;
+  color: #101820;
+}
+
+.az-light-grey {
+  background-color: #e7ebee;
+  color: #101820;
+}
+
+/* Dividers */
+.az-divider {
+  border: none;
+  border-top: 1px solid rgba(22, 185, 232, 0.15);
+}
+
+.az-divider-light {
+  border: none;
+  border-top: 1px solid rgba(16, 24, 32, 0.1);
+}
+
+/* Cyan accent */
+.az-cyan {
+  color: #16b9e8;
+}
+
+/* Tags / badges */
+.az-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(22, 185, 232, 0.3);
+  color: #16b9e8;
+  border-radius: 2px;
+}
+
+.az-badge-light {
+  border-color: rgba(16, 24, 32, 0.2);
+  color: #3a4e68;
+}
+
+/* Signal pulse animation */
+@keyframes az-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes az-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes az-signal {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes az-alert-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes az-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-az-pulse {
+  animation: az-pulse 2s ease-in-out infinite;
+}
+
+.animate-az-ping {
+  animation: az-ping 2s ease-out infinite;
+}
+
+.animate-az-alert {
+  animation: az-alert-in 0.4s ease forwards;
+}
+
+.animate-az-fade-up {
+  animation: az-fade-up 0.6s ease forwards;
+}
+
+/* Technical grid background pattern */
+.az-grid-bg {
+  background-image:
+    linear-gradient(rgba(22, 185, 232, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 185, 232, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.az-grid-bg-light {
+  background-image:
+    linear-gradient(rgba(16, 24, 32, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 24, 32, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Corner bracket decoration */
+.az-bracket::before,
+.az-bracket::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(22, 185, 232, 0.4);
+  border-style: solid;
+}
+
+.az-bracket::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.az-bracket::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* Status indicator */
+.az-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Monospace numbers */
+.az-mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
 }
