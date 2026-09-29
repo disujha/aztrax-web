@@ -1,43 +1,64 @@
-@import "tailwindcss";
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-
-  /* AZTRAX Brand Colours */
-  --color-graphite-950: #060810;
-  --color-graphite-900: #0c111a;
-  --color-graphite-800: #101820;
-  --color-graphite-700: #182030;
-  --color-graphite-600: #1e2a3c;
-  --color-graphite-500: #2a3a50;
-  --color-graphite-400: #3a4e68;
-  --color-graphite-300: #5a6e88;
-  --color-graphite-200: #8a9ab0;
-  --color-graphite-100: #b8c4d0;
-  --color-graphite-50: #e0e6ec;
-
-  --color-industrial-white: #f5f7f8;
-  --color-cool-grey: #e7ebee;
-  --color-mid-grey: #c8d0d8;
-
-  --color-cyan-400: #16b9e8;
-  --color-cyan-500: #0ea0cc;
-  --color-cyan-600: #0888aa;
-  --color-cyan-300: #4dcef0;
-  --color-cyan-200: #8de0f4;
-  --color-cyan-100: #cef3fc;
-
-  --color-amber-500: #d4a020;
-  --color-green-500: #2ea84a;
+@font-face {
+  font-family: 'Akira';
+  src: url('/fonts/Akira.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
+@import "tailwindcss";
+
 :root {
-  --background: #f5f7f8;
-  --foreground: #101820;
-  --border-subtle: rgba(16, 24, 32, 0.08);
-  --border-mid: rgba(16, 24, 32, 0.15);
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+
+  /* Editorial Industrial Palette */
+  --bg-primary: #f7f6f2;
+  --bg-card: #ffffff;
+  --bg-subtle: #f0eee8;
+  --bg-dark: #121417;
+  --bg-dark-elevated: #1a1d22;
+
+  --text-primary: #121417;
+  --text-secondary: #4a505b;
+  --text-muted: #737a87;
+  --text-inverted: #f7f6f2;
+
+  --border-light: #e4e2db;
+  --border-strong: #c8c5bc;
+  --border-dark: #262a32;
+
+  --accent-cyan: #0ea5e9;
+  --accent-cyan-dark: #0284c7;
+  --alert-amber: #d97706;
+  --alert-amber-light: #f59e0b;
+}
+
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --color-industrial-bg: #f7f6f2;
+  --color-industrial-card: #ffffff;
+  --color-industrial-subtle: #f0eee8;
+  --color-industrial-dark: #121417;
+  --color-industrial-dark-subtle: #1a1d22;
+
+  --color-industrial-text: #121417;
+  --color-industrial-muted: #646a76;
+  --color-industrial-border: #e4e2db;
+
+  --color-az-cyan: #0ea5e9;
+  --color-az-amber: #d97706;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
 }
 
 /* ------------------------------------------------------------------ */

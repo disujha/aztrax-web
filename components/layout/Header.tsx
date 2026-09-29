@@ -1,15 +1,15 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import { AztraxLogo } from '@/components/ui/AztraxLogo';
 
 const navLinks = [
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Use Cases', href: '#use-cases' },
-  { label: 'Pilot', href: '#pilot' },
-  { label: 'About', href: '#about' },
+  { label: 'Problem', href: '#problem' },
+  { label: 'Not Every Asset Needs GPS', href: '#concept' },
+  { label: 'Situations', href: '#situations' },
+  { label: 'Architecture', href: '#architecture' },
+  { label: '30-Day Pilot', href: '#pilot' },
 ];
 
 export function Header() {
@@ -36,42 +36,63 @@ export function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
           scrolled
-            ? 'shadow-[0_2px_20px_rgba(0,0,0,0.4)]'
+            ? 'shadow-[0_4px_24px_rgba(0,0,0,0.35)]'
             : ''
         }`}
         style={{
-          background: '#101820',
-          borderBottom: '1px solid rgba(22,185,232,0.12)',
+          background: '#121417',
+          borderBottom: '1px solid #232730',
           height: '64px',
         }}
       >
         <div
-          className="az-container flex items-center justify-between"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between"
           style={{ height: '64px' }}
         >
           {/* Logo */}
           <a
             href="/"
-            className="flex items-center select-none"
+            className="flex items-center gap-2.5 select-none group"
+            style={{ color: '#ffffff', textDecoration: 'none' }}
             aria-label="AZTRAX Home"
           >
-            <AztraxLogo size="sm" showSubtitle={false} />
+            <Image
+              src="/main_icon.png"
+              alt="AZTRAX"
+              width={28}
+              height={28}
+              className="object-contain transition-transform group-hover:scale-105"
+              priority
+            />
+            <span
+              style={{
+                color: '#ffffff',
+                fontSize: '1.15rem',
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+                fontFamily: "'Akira', var(--font-sans), sans-serif",
+                lineHeight: 1,
+              }}
+            >
+              aztrax
+            </span>
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.href)}
-                className="text-xs font-medium tracking-widest uppercase transition-colors duration-150"
-                style={{ color: '#8a9ab0' }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = '#f5f7f8')
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = '#8a9ab0')
-                }
+                className="text-[13px] font-medium tracking-wider uppercase transition-colors duration-150 cursor-pointer"
+                style={{
+                  color: '#9aa0ac',
+                  fontFamily: 'var(--font-sans)',
+                  background: 'none',
+                  border: 'none',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#9aa0ac')}
               >
                 {link.label}
               </button>
@@ -79,36 +100,40 @@ export function Header() {
           </nav>
 
           {/* CTA + hamburger */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => handleNavClick('#pilot')}
-              className="hidden md:flex items-center justify-center font-semibold transition-all duration-150"
+              className="hidden sm:inline-flex items-center justify-center font-medium tracking-wide transition-all duration-150 cursor-pointer"
               style={{
-                background: '#16b9e8',
-                color: '#060810',
+                background: '#f7f6f2',
+                color: '#121417',
                 fontSize: '0.8125rem',
-                padding: '0.5rem 1.25rem',
-                borderRadius: '4px',
-                letterSpacing: '0.02em',
-                border: 'none',
-                cursor: 'pointer',
+                padding: '0.5rem 1.125rem',
+                borderRadius: '2px',
+                border: '1px solid #ffffff',
+                fontFamily: 'var(--font-sans)',
+                fontWeight: 600,
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.background = '#4dcef0')
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.background = '#16b9e8')
-              }
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#0ea5e9';
+                e.currentTarget.style.color = '#ffffff';
+                e.currentTarget.style.borderColor = '#0ea5e9';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#f7f6f2';
+                e.currentTarget.style.color = '#121417';
+                e.currentTarget.style.borderColor = '#ffffff';
+              }}
             >
-              Request a Free Pilot
+              Start a 30-day pilot →
             </button>
 
             <button
-              className="md:hidden flex items-center justify-center"
-              style={{ color: '#f5f7f8', background: 'none', border: 'none', cursor: 'pointer', padding: '0.25rem' }}
+              className="lg:hidden flex items-center justify-center p-2 text-[#f7f6f2] cursor-pointer"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
+              style={{ background: 'none', border: 'none' }}
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -120,7 +145,7 @@ export function Header() {
       {mobileOpen && (
         <div
           className="fixed inset-0 z-40 flex flex-col"
-          style={{ background: '#0c111a', paddingTop: '64px' }}
+          style={{ background: '#121417', paddingTop: '64px' }}
         >
           <nav
             className="flex flex-col gap-0 p-6"
@@ -130,13 +155,14 @@ export function Header() {
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.href)}
-                className="text-left py-4 text-base font-medium tracking-widest uppercase transition-colors duration-150"
+                className="text-left py-4 text-sm font-medium tracking-wider uppercase transition-colors duration-150"
                 style={{
-                  color: '#b8c4d0',
+                  color: '#c2c7d0',
                   background: 'none',
                   border: 'none',
-                  borderBottom: '1px solid rgba(22,185,232,0.08)',
+                  borderBottom: '1px solid #232730',
                   cursor: 'pointer',
+                  fontFamily: 'var(--font-sans)',
                 }}
               >
                 {link.label}
@@ -146,17 +172,18 @@ export function Header() {
               onClick={() => handleNavClick('#pilot')}
               className="mt-6 font-semibold"
               style={{
-                background: '#16b9e8',
-                color: '#060810',
+                background: '#0ea5e9',
+                color: '#ffffff',
                 fontSize: '0.9375rem',
-                padding: '1rem',
-                borderRadius: '4px',
+                padding: '0.875rem',
+                borderRadius: '2px',
                 border: 'none',
                 cursor: 'pointer',
                 width: '100%',
+                fontFamily: 'var(--font-sans)',
               }}
             >
-              Request a Free Pilot
+              Start a 30-day pilot →
             </button>
           </nav>
         </div>

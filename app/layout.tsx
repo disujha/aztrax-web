@@ -1,38 +1,27 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://aztrax.in'),
   title: {
-    default: 'AZTRAX | Industrial Asset Movement & Removal Detection',
+    default: 'AZTRAX | Industrial Asset Movement Detection',
     template: '%s | AZTRAX',
   },
   description:
-    'Detect when valuable equipment moves or is removed when it shouldn\'t. AZTRAX provides low-cost wireless asset movement detection for industrial sites, EPC equipment, telecom infrastructure, EV charging and controlled parking environments.',
+    'Aztrax detects unexpected movement of industrial equipment and assets inside defined sites, yards and project areas — without putting GPS and a SIM on everything.',
   keywords: [
-    'industrial asset tracking',
+    'industrial movement detection',
     'asset movement detection',
-    'equipment theft prevention',
-    'industrial asset security',
     'equipment removal detection',
-    'telecom equipment security',
-    'construction equipment security',
-    'EV charging equipment security',
-    'warehouse asset monitoring',
-    'wireless asset detection',
-    'equipment removal alert',
-    'asset protection system',
-    'industrial IoT security',
+    'industrial site security',
+    'generator monitoring',
+    'welding machine security',
+    'cable reel tracking',
+    'EPC equipment security',
+    'plant asset protection',
+    'non-GPS asset monitoring',
   ],
   authors: [{ name: 'AZTRAX' }],
   creator: 'AZTRAX',
@@ -41,23 +30,23 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: 'https://aztrax.in',
     siteName: 'AZTRAX',
-    title: 'AZTRAX | Industrial Asset Movement & Removal Detection',
+    title: 'AZTRAX | Know when something moves that shouldn’t.',
     description:
-      'Know when something valuable moves when it shouldn\'t. Wireless asset movement and removal detection for industrial sites, telecom infrastructure, EV charging locations and controlled environments.',
+      'Aztrax detects unexpected movement of industrial equipment and assets inside defined sites, yards and project areas — without putting GPS and a SIM on everything.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'AZTRAX Industrial Asset Movement Detection',
+        alt: 'AZTRAX Industrial Movement Detection',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AZTRAX | Industrial Asset Movement & Removal Detection',
+    title: 'AZTRAX | Industrial Movement Detection',
     description:
-      'Know when something valuable moves when it shouldn\'t. Wireless detection for industrial assets.',
+      'Aztrax detects unexpected movement of industrial equipment inside defined sites without putting GPS on everything.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -92,8 +81,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
       </head>
       <body className="antialiased">

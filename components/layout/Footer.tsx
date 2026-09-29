@@ -1,73 +1,80 @@
 'use client';
 
 import React from 'react';
-import { Radio, Shield, Zap } from 'lucide-react';
-import { AztraxLogo } from '@/components/ui/AztraxLogo';
+import Image from 'next/image';
 
-const footerLinks = [
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Use Cases', href: '#use-cases' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Pilot Programme', href: '#pilot' },
-  { label: 'About AZTRAX', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-  { label: 'Privacy Policy', href: '/privacy' },
-  { label: 'Terms of Use', href: '/terms' },
+const primaryLinks = [
+  { label: 'Problem & Discovery Gap', href: '#problem' },
+  { label: 'First Principles (No GPS)', href: '#concept' },
+  { label: 'Three Real Situations', href: '#situations' },
+  { label: 'System Architecture', href: '#architecture' },
+  { label: '30-Day Pilot Protocol', href: '#pilot' },
 ];
 
-const capabilities = [
-  { icon: Radio, label: 'Wireless Detection' },
-  { icon: Shield, label: 'Asset Protection' },
-  { icon: Zap, label: 'Instant Alerts' },
+const targetIndustries = [
+  'EPC Project Sites & Compounds',
+  'Petrochemical & Refinery Plants',
+  'Industrial Equipment Rental Yards',
+  'Mechanical & Electrical Contractors',
+  'Material Laydown & Cable Yards',
 ];
 
 export function Footer() {
   return (
-    <footer
-      style={{
-        background: '#060810',
-        borderTop: '1px solid rgba(22,185,232,0.1)',
-      }}
-    >
-      {/* Main footer grid */}
-      <div className="az-container" style={{ paddingTop: '4rem', paddingBottom: '3rem' }}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Brand column */}
-          <div className="md:col-span-1">
-            <div className="mb-4">
-              <AztraxLogo size="md" showSubtitle={false} />
+    <footer className="bg-[#121417] text-[#f7f6f2] border-t border-[#232730]">
+      {/* Main Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          
+          {/* Brand & Proposition (5 cols) */}
+          <div className="md:col-span-5 space-y-4">
+            <div className="flex items-center gap-2.5 select-none">
+              <Image
+                src="/main_icon.png"
+                alt="AZTRAX"
+                width={28}
+                height={28}
+                className="object-contain"
+              />
+              <span
+                style={{
+                  color: '#ffffff',
+                  fontSize: '1.2rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.04em',
+                  fontFamily: "'Akira', var(--font-sans), sans-serif",
+                  lineHeight: 1,
+                }}
+              >
+                aztrax
+              </span>
             </div>
-            <p style={{ color: '#5a6e88', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
-              Industrial Asset Movement &amp; Removal Detection
-            </p>
-            <p style={{ color: '#8a9ab0', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '280px' }}>
-              A low-cost wireless detection system designed for industrial operators,
-              contractors and asset owners who need to know when something moves when it shouldn&apos;t.
+
+            <p className="text-xs font-mono uppercase text-[#0ea5e9] tracking-wider">
+              Industrial Asset Movement Detection
             </p>
 
-            <div className="flex flex-col gap-2 mt-6">
-              {capabilities.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-2">
-                  <Icon size={12} style={{ color: '#16b9e8' }} />
-                  <span style={{ color: '#5a6e88', fontSize: '0.75rem', letterSpacing: '0.05em' }}>{label}</span>
-                </div>
-              ))}
+            <p className="text-sm text-[#9aa0ac] leading-relaxed max-w-sm font-normal">
+              Aztrax detects unexpected movement of industrial equipment inside defined sites, yards and project areas — without putting GPS and a SIM on everything.
+            </p>
+
+            <div className="pt-2 text-xs font-mono text-[#737a87]">
+              <span>CORE ASSETS: </span>
+              <span className="text-[#f7f6f2]">GENERATORS · WELDING PLANT · CABLE REELS</span>
             </div>
           </div>
 
-          {/* Links column */}
-          <div>
-            <h4 style={{ color: '#f5f7f8', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
-              Navigation
+          {/* Navigation Links (3 cols) */}
+          <div className="md:col-span-3">
+            <h4 className="text-xs font-mono uppercase text-[#737a87] tracking-wider mb-4">
+              Documentation
             </h4>
-            <ul className="flex flex-col gap-3">
-              {footerLinks.map((link) => (
+            <ul className="space-y-2.5 text-sm font-normal">
+              {primaryLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    style={{ color: '#5a6e88', fontSize: '0.875rem', transition: 'color 0.15s', textDecoration: 'none' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#16b9e8')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#5a6e88')}
+                    className="text-[#9aa0ac] hover:text-[#ffffff] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -76,62 +83,43 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Pilot CTA column */}
-          <div>
-            <h4 style={{ color: '#f5f7f8', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
-              Start a Pilot
+          {/* Target Facilities & Contact (4 cols) */}
+          <div className="md:col-span-4">
+            <h4 className="text-xs font-mono uppercase text-[#737a87] tracking-wider mb-4">
+              Validated Environments
             </h4>
-            <p style={{ color: '#8a9ab0', fontSize: '0.875rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-              We are currently offering a limited number of free pilot deployments
-              to industrial operators and contractors.
-            </p>
-            <a
-              href="#pilot"
-              className="inline-flex items-center justify-center font-semibold transition-all duration-150"
-              style={{
-                background: '#16b9e8',
-                color: '#060810',
-                fontSize: '0.8125rem',
-                padding: '0.625rem 1.25rem',
-                borderRadius: '4px',
-                textDecoration: 'none',
-                display: 'inline-block',
-                marginBottom: '1rem',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#4dcef0')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#16b9e8')}
-            >
-              Request a Free Pilot
-            </a>
-            <div style={{ marginTop: '0.75rem' }}>
+            <ul className="space-y-2 text-xs font-mono text-[#9aa0ac] mb-6">
+              {targetIndustries.map((ind) => (
+                <li key={ind} className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#0ea5e9]" />
+                  <span>{ind}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="pt-4 border-t border-[#232730] flex flex-col gap-1 text-xs font-mono">
+              <span className="text-[#737a87]">PILOT INQUIRIES &amp; FIELD OPS:</span>
               <a
-                href="mailto:hello@aztrax.in"
-                style={{ color: '#5a6e88', fontSize: '0.8125rem', transition: 'color 0.15s', textDecoration: 'none' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#16b9e8')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#5a6e88')}
+                href="mailto:pilot@aztrax.in"
+                className="text-[#f7f6f2] hover:text-[#0ea5e9] transition-colors font-medium"
               >
-                hello@aztrax.in
+                pilot@aztrax.in
               </a>
             </div>
           </div>
+
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div
-        style={{
-          borderTop: '1px solid rgba(22,185,232,0.06)',
-          paddingTop: '1.25rem',
-          paddingBottom: '1.25rem',
-        }}
-      >
-        <div className="az-container flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p style={{ color: '#3a4e68', fontSize: '0.75rem' }}>
-            &copy; {new Date().getFullYear()} AZTRAX. All rights reserved.
-          </p>
-          <p style={{ color: '#2a3a50', fontSize: '0.7rem', letterSpacing: '0.05em' }}>
-            Pilot-stage product &middot; Currently under development and validation
-          </p>
+      {/* Bottom Bar */}
+      <div className="border-t border-[#232730] py-6 bg-[#0e1013]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#737a87]">
+          <div>
+            &copy; {new Date().getFullYear()} AZTRAX. ALL RIGHTS RESERVED.
+          </div>
+          <div>
+            PILOT-STAGE INDUSTRIAL HARDWARE · NOT A GENERIC GPS TELEMATICS PLATFORM
+          </div>
         </div>
       </div>
     </footer>
