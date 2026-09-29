@@ -54,9 +54,9 @@ export async function POST(req: NextRequest) {
       leadSummary: {
         fullName: record.fullName,
         companyName: record.companyName,
-        workEmail: record.workEmail,
-        industry: record.industry,
-        assetCount: record.assetCount,
+        contactInfo: record.contactInfo,
+        siteType: record.siteType,
+        assetTypes: record.assetTypes,
       },
     });
   } catch (error: unknown) {

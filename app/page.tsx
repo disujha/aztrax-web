@@ -1,9 +1,9 @@
 import { HeroSection } from '@/components/redesign/HeroSection';
 import { ProblemSection } from '@/components/redesign/ProblemSection';
 import { CoreIdeaSection } from '@/components/redesign/CoreIdeaSection';
+import { AuthorisedMovesSection } from '@/components/redesign/AuthorisedMovesSection';
 import { SituationsSection } from '@/components/redesign/SituationsSection';
 import { HowItWorksSection } from '@/components/redesign/HowItWorksSection';
-import { ArchitectureSection } from '@/components/redesign/ArchitectureSection';
 import { PilotSection } from '@/components/redesign/PilotSection';
 import { EngineeringProofSection } from '@/components/redesign/EngineeringProofSection';
 import { FinalCTASection } from '@/components/redesign/FinalCTASection';
@@ -11,31 +11,31 @@ import { FinalCTASection } from '@/components/redesign/FinalCTASection';
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#f7f6f2] text-[#121417]">
-      {/* SECTION 1 — HERO */}
+      {/* 1. HERO — Headline + Buyer Line + CTAs + Hardware Photo & Overlay */}
       <HeroSection />
 
-      {/* SECTION 2 — THE PROBLEM */}
+      {/* 2. THE PROBLEM — 02:17 Card + WhatsApp Alert Example Mockup */}
       <ProblemSection />
 
-      {/* SECTION 3 — THE CORE IDEA ("Not every asset needs GPS") */}
+      {/* 3. THE CORE IDEA — Structural GPS Limits + Objection Handled + What Aztrax Does Not Do */}
       <CoreIdeaSection />
 
-      {/* SECTION 4 — THREE REAL SITUATIONS (Generators, Welding, Cable Reels) */}
+      {/* 4. AUTHORISED MOVES — 'Only alerts that matter' (Legitimate movement workflow) */}
+      <AuthorisedMovesSection />
+
+      {/* 5. THREE REAL SITUATIONS — Generators, Welding Equipment, Cable Reels */}
       <SituationsSection />
 
-      {/* SECTION 5 — HOW AZTRAX WORKS (Physical flow: Asset -> Tag -> Radio -> Gateway -> Cloud -> Alert) */}
+      {/* 6. HOW AZTRAX WORKS & HARDWARE — Merged Section (Pipeline + Measured Specs + 865-867 MHz) */}
       <HowItWorksSection />
 
-      {/* SECTION 6 — WHY THE ARCHITECTURE IS DIFFERENT ("Why put GPS on everything?") */}
-      <ArchitectureSection />
-
-      {/* SECTION 7 — THE PILOT ("Start with one area. Prove it." 10 assets / 1 gateway / 1 area / 30 days) */}
+      {/* 7. THE PILOT PROTOCOL — 10 Assets / 1 Gateway / 30 Days + Timeline + 5-Field Form */}
       <PilotSection />
 
-      {/* SECTION 8 — ENGINEERING PROOF ("Built for real industrial conditions") */}
+      {/* 8. ENGINEERING PROOF & FOUNDER CREDIBILITY — Real Test Records + Haldia/Mumbai Track Record */}
       <EngineeringProofSection />
 
-      {/* SECTION 9 — FINAL CTA ("Have something valuable that shouldn’t move unnoticed?") */}
+      {/* 9. FINAL CTA — Clear Direct Conversion + 10 Assets · 1 Gateway · 30 Days */}
       <FinalCTASection />
     </div>
   );

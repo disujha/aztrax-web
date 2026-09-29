@@ -73,7 +73,7 @@ export async function savePilotRequest(
   // Graceful local store fallback (allows offline / local testing without crashing)
   inMemoryPilotStore.push(record);
   console.log(
-    `[AZTRAX PILOT DISPATCH] New pilot request recorded [ID: ${record.id}] for ${record.companyName} (${record.workEmail})`
+    `[AZTRAX PILOT DISPATCH] New pilot request recorded [ID: ${record.id}] for ${record.companyName} (${record.contactInfo || record.workEmail || 'N/A'})`
   );
   return { success: true, storage: 'local_fallback' };
 }

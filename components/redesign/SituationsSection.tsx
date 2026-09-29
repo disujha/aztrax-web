@@ -15,9 +15,9 @@ const situations = [
       time: '02:17 AM',
       status: 'MOVEMENT DETECTED',
       location: 'GATEWAY G-03 · CONTRACTOR PERIMETER WEST',
-      sensor: '3-AXIS ACCELERATION TRIGGER (>0.15G)',
+      sensor: '3-AXIS ACCELEROMETER TRIGGER (>0.15G)',
     },
-    action: 'Night security desk notified before the vehicle reaches the main perimeter boom barrier.',
+    action: 'Night security desk notified before the towing vehicle reaches the main perimeter boom barrier.',
   },
   {
     id: 'welding',
@@ -26,7 +26,7 @@ const situations = [
     title: 'Welding & Portable Inverters',
     scenario: 'A contractor’s welding machine leaves its assigned area.',
     description:
-      'Industrial welding machines, pipe-bevelling tools, and mobile compressors migrate constantly between contractors and sub-contractors on large EPC projects. They frequently “disappear” during shift handovers or get loaded into unauthorized pickup beds.',
+      'Industrial welding machines, pipe-bevelling tools, and mobile compressors migrate constantly between contractors and sub-contractors on large EPC projects. They frequently disappear during shift handovers or get loaded into unauthorized pickup beds.',
     telemetry: {
       time: '18:42',
       status: 'MOVEMENT DETECTED',
@@ -59,10 +59,10 @@ export function SituationsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Index Marker */}
-        <div className="flex items-center gap-3 text-xs font-mono uppercase text-[#737a87] mb-4">
-          <span className="text-[#121417] font-semibold">03</span>
+        <div className="flex items-center gap-3 text-xs sm:text-[13px] font-mono uppercase text-[#4a505b] mb-4">
+          <span className="text-[#121417] font-bold">04</span>
           <span>/</span>
-          <span>FIELD APPLICATIONS</span>
+          <span className="font-semibold">THREE REAL SITUATIONS</span>
         </div>
 
         {/* Section Headline */}
@@ -70,8 +70,8 @@ export function SituationsSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#121417] leading-tight mb-4">
             Three things that shouldn’t move unnoticed.
           </h2>
-          <p className="text-lg text-[#646a76] leading-relaxed">
-            Aztrax is intentionally not a universal tracking platform for consumer items. We focus on stationary and semi-stationary capital equipment where unexpected displacement creates serious disruption.
+          <p className="text-lg text-[#4a505b] leading-relaxed">
+            Aztrax is intentionally not a universal tracking platform for consumer items. We focus on stationary and semi-stationary capital equipment where unexpected displacement creates serious operational disruption.
           </p>
         </div>
 
@@ -84,9 +84,9 @@ export function SituationsSection() {
             >
               <div>
                 {/* Header Tag */}
-                <div className="flex items-center justify-between text-xs font-mono text-[#737a87] mb-4 pb-3 border-b border-[#e4e2db]">
-                  <span className="font-semibold text-[#121417]">{item.index}</span>
-                  <span className="uppercase tracking-wider">{item.category}</span>
+                <div className="flex items-center justify-between text-xs sm:text-[13px] font-mono text-[#4a505b] mb-4 pb-3 border-b border-[#e4e2db]">
+                  <span className="font-bold text-[#121417]">{item.index}</span>
+                  <span className="uppercase tracking-wider font-semibold">{item.category}</span>
                 </div>
 
                 {/* Title & Core Scenario */}
@@ -105,28 +105,28 @@ export function SituationsSection() {
 
               {/* Concrete Telemetry Display Box */}
               <div>
-                <div className="bg-[#121417] text-[#f7f6f2] p-4 font-mono text-xs border border-[#2a2f38] mb-4">
+                <div className="bg-[#121417] text-[#f7f6f2] p-4 font-mono text-xs sm:text-[13px] border border-[#2a2f38] mb-4">
                   <div className="flex items-center justify-between mb-2 pb-2 border-b border-[#232730]">
-                    <span className="text-[#a0a5af]">EVENT TIMESTAMP</span>
-                    <span className="text-[#d97706] font-semibold">{item.telemetry.time}</span>
+                    <span className="text-[#a0a5af]">TIMESTAMP</span>
+                    <span className="text-[#f59e0b] font-bold">{item.telemetry.time}</span>
                   </div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[#a0a5af]">STATE</span>
-                    <span className="text-[#f59e0b] font-medium tracking-wide">
+                    <span className="text-[#a0a5af]">ALERT STATUS</span>
+                    <span className="text-[#f59e0b] font-semibold tracking-wide">
                       {item.telemetry.status}
                     </span>
                   </div>
-                  <div className="text-[11px] text-[#c2c7d0] pt-1">
+                  <div className="text-xs text-[#c2c7d0] pt-1 font-medium">
                     {item.telemetry.location}
                   </div>
-                  <div className="text-[10px] text-[#737a87] mt-1">
+                  <div className="text-[11px] text-[#9aa0ac] mt-1">
                     {item.telemetry.sensor}
                   </div>
                 </div>
 
                 {/* Resulting Human Action */}
-                <div className="text-xs text-[#32363e] pt-2 border-t border-[#e4e2db]">
-                  <span className="font-semibold text-[#121417] block font-mono text-[11px] mb-0.5 uppercase">
+                <div className="text-xs sm:text-[13px] text-[#32363e] pt-2 border-t border-[#e4e2db]">
+                  <span className="font-bold text-[#121417] block font-mono text-xs mb-0.5 uppercase">
                     Operational Action
                   </span>
                   <span>{item.action}</span>
@@ -137,8 +137,8 @@ export function SituationsSection() {
         </div>
 
         {/* Editorial Subnote */}
-        <div className="mt-12 text-center text-xs font-mono text-[#737a87]">
-          SCOPE RESTRICTION: ASSETS REQUIRING HIGHWAY/REGIONAL TRACKING OUTSIDE PLANTS ARE BETTER SUITED TO STANDARD FLEET GPS.
+        <div className="mt-12 text-center text-xs sm:text-[13px] font-mono text-[#737a87] font-medium">
+          RADIO SCOPE: 865–867 MHZ SUB-GHZ RECEPTION ACROSS DEFINED PLANT YARD BOUNDARIES.
         </div>
 
       </div>
