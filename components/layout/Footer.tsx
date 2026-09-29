@@ -101,10 +101,10 @@ export function Footer() {
             <div className="pt-4 border-t border-[#232730] flex flex-col gap-1 text-xs sm:text-[13px] font-mono">
               <span className="text-[#9aa0ac]">PILOT INQUIRIES &amp; FIELD OPS:</span>
               <a
-                href="mailto:pilot@aztrax.in"
+                href="mailto:info@aztrax.in"
                 className="text-[#f7f6f2] hover:text-[#0ea5e9] transition-colors font-semibold"
               >
-                pilot@aztrax.in
+                info@aztrax.in
               </a>
             </div>
           </div>

@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
   } catch (error: unknown) {
     console.error('Error handling pilot request:', error);
     return NextResponse.json(
-      { error: 'An unexpected internal error occurred. Please contact pilots@aztrax.in directly.' },
+      { error: 'An unexpected internal error occurred. Please contact info@aztrax.in directly.' },
       { status: 500 }
     );
   }
